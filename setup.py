@@ -14,6 +14,7 @@ setup(
     version=__version__,
     description=__description__,
     long_description=long_description,
+    long_description_content_type="text/markdown",
     url='https://github.com/BbsonLin/flask-filer',
     license='MIT',
     author=__author__,
