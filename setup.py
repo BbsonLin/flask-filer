@@ -26,6 +26,7 @@ setup(
     classifiers=[
         'Development Status :: 1 - Planning',
         'Environment :: Web Environment',
+        'Framework :: Flask',
         'Operating System :: OS Independent',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
