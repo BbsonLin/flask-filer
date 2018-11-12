@@ -1,3 +1,5 @@
+import os
+import glob
 import pytest
 
 from flask import Flask
@@ -11,7 +13,11 @@ def app():
     filer = Filer()
     filer.init_app(app)
 
-    return app
+    yield app
+
+    # Clean up the files that unittest generated
+    for f in glob.glob('./tests/testfile.*'):
+        os.remove(f)
 
 
 @pytest.fixture

@@ -10,3 +10,4 @@ fs = "*"
 [dev-packages]
 pytest = "*"
 coverage = "*"
+pytest-tap = "*"
