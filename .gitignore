@@ -22,8 +22,23 @@ var/
 *.egg
 .pytest_cache
 
-# dotenv
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Sphinx documentation
+docs/source/_build/
+
+# Environments
 .env
+
+# Sqlite
+*.db
+*.sqlite
+
+# Log file
+*.log
+*.tap
 
 # Visual Studio code
 .vscode
