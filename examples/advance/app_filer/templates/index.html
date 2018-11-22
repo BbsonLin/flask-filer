@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for message in get_flashed_messages() %}
+<div class="alert alert-success" role="alert">
+  {{ message }}
+</div>
+{% endfor %}
+<div class="d-flex">
+  <div class="">
+    <h1>Current Dir: {{ current_dir }}</h1>
+  </div>
+  <a href="/browse/" class="btn btn-primary m-2">Go Explore☛</a>
+</div>
+
+<form class="form-inline" action="/" method="post">
+  <div class="form-group mr-3">
+    <label class="mr-3" for="filerPath">Change directory to </label>
+    <input class="form-control" name="filerPath" id="filerPath" required>
+  </div>
+  <button type="submit" class="btn btn-info">Change</button>
+</form>
+{% endblock %}
