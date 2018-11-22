@@ -1,4 +1,5 @@
 from fs.osfs import OSFS
+from flask import current_app
 
 from .api import BrowseAPI, DownloadAPI, UploadAPI
 
@@ -36,3 +37,7 @@ class Filer(object):
         upload_view = UploadAPI.as_view('upload')
         app.add_url_rule('/upload/', view_func=upload_view)
         app.add_url_rule('/upload/<path:path>', view_func=upload_view, methods=['POST'])
+
+    def change_dir(self, cd_path):
+        current_app.config['FILER_ROOT_PATH'] = cd_path
+        self.dfs = OSFS(current_app.config.get('FILER_ROOT_PATH'))
