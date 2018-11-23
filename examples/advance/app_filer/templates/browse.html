@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% if not file_list %}
+<p>No files in directory</p>
+{% else %}
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Mimetype</th>
+      <th scope="col">Modified</th>
+      <th scope="col">Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for file in file_list %}
+    <tr>
+      <td>
+        <a href="{{ url_for('browse', path=file["basic"]["path_url"]) }}">{{ file["basic"]["name"] }}</a>
+      </td>
+      
+      {% if file["details"]["type"] == 1 %}
+      <td>Directory</td>
+      {% elif not file["basic"]["mimetype"] %}
+      <td></td>
+      {% else %}
+      <td>{{ file["basic"]["mimetype"] }}</td>
+      {% endif %}
+      
+      <td>{{ file["details"]["modified"] }}</td>
+      
+      {% if file["details"]["type"] == 1 %}
+      <td></td>
+      {% else %}
+      <td>{{ file["details"]["size"] }}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% endblock %}
