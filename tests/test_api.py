@@ -2,13 +2,13 @@ import io
 
 
 def test_browse(client):
-    resp = client.get('/browse/')
+    resp = client.get('/filer-browse/')
     assert resp.status_code == 200
     print(resp.data)
 
 
 def test_download(client):
-    resp = client.get('/download/conftest.py')
+    resp = client.get('/filer-download/conftest.py')
     assert resp.status_code == 200
 
 
@@ -20,7 +20,7 @@ def test_upload(client):
         'testfile.txt': genbytesio(127, 'ascii'),
         'testfile.bin': genbytesio(255, 'utf-8'),
     }
-    resp = client.post('/upload/', data=dict(
+    resp = client.post('/filer-upload/', data=dict(
         file=[(f_v, f_k) for f_k, f_v in files.items()]
     ))
     assert resp.status_code == 200

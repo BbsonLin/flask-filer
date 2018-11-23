@@ -5,7 +5,7 @@ from flask import json, jsonify, request, send_file, current_app
 from flask.views import MethodView
 from werkzeug.utils import secure_filename
 
-from .utils import get_dirlist, get_details, open_file
+from .utils import get_dirlist, get_info, open_file
 from .exceptions import InvalidPathError
 
 LOG = logging.getLogger(__name__)
@@ -18,7 +18,7 @@ class BrowseAPI(MethodView):
     def get(self, path='/'):
         filer_list = get_dirlist(path)
         LOG.debug(filer_list)
-        return json.dumps(get_details(filer_list))
+        return json.dumps(get_info(filer_list))
 
 
 class DownloadAPI(MethodView):

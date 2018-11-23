@@ -26,17 +26,17 @@ class Filer(object):
         self.dfs = OSFS(app.config.get('FILER_ROOT_PATH'))
 
     def _set_default_api(self, app):
-        browse_view = BrowseAPI.as_view('browse')
-        app.add_url_rule('/browse/', view_func=browse_view)
-        app.add_url_rule('/browse/<path:path>', view_func=browse_view, methods=['GET'])
+        browse_view = BrowseAPI.as_view('filer-browse')
+        app.add_url_rule('/filer-browse/', view_func=browse_view)
+        app.add_url_rule('/filer-browse/<path:path>', view_func=browse_view, methods=['GET'])
 
-        download_view = DownloadAPI.as_view('download')
-        app.add_url_rule('/download/', view_func=download_view)
-        app.add_url_rule('/download/<path:path>', view_func=download_view, methods=['GET'])
+        download_view = DownloadAPI.as_view('filer-download')
+        app.add_url_rule('/filer-download/', view_func=download_view)
+        app.add_url_rule('/filer-download/<path:path>', view_func=download_view, methods=['GET'])
 
-        upload_view = UploadAPI.as_view('upload')
-        app.add_url_rule('/upload/', view_func=upload_view)
-        app.add_url_rule('/upload/<path:path>', view_func=upload_view, methods=['POST'])
+        upload_view = UploadAPI.as_view('filer-upload')
+        app.add_url_rule('/filer-upload/', view_func=upload_view)
+        app.add_url_rule('/filer-upload/<path:path>', view_func=upload_view, methods=['POST'])
 
     def change_dir(self, cd_path):
         current_app.config['FILER_ROOT_PATH'] = cd_path
