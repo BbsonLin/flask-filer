@@ -4,8 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-Flask = "*"
-fs = "*"
+flask-filer = {editable = true, path = "."}
 
 [dev-packages]
 pytest = "*"
