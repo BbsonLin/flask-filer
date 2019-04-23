@@ -1,0 +1,37 @@
+---
+kind: pipeline
+name: python3.5.x
+
+steps:
+- name: build
+  image: python:3.5
+  commands:
+  - pip install pipenv --upgrade-strategy=only-if-needed
+  - pipenv install --dev
+  - pipenv install pathlib2
+  - pipenv run pytest
+
+---
+kind: pipeline
+name: python3.6.x
+
+steps:
+- name: build
+  image: python:3.6
+  commands:
+  - pip install pipenv --upgrade-strategy=only-if-needed
+  - pipenv install --dev
+  - pipenv run pytest
+
+---
+kind: pipeline
+name: python3.7.x
+
+steps:
+- name: build
+  image: python:3.7
+  commands:
+  - pip install pipenv --upgrade-strategy=only-if-needed
+  - pipenv install --dev
+  - pipenv run pytest
+

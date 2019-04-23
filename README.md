@@ -1,5 +1,6 @@
 Flask Filer
 ===========
+[![Build Status](https://img.shields.io/drone/build/BbsonLin/flask-filer.svg?style=flat-square)](https://cloud.drone.io/BbsonLin/flask-filer)
 [![Build Status](https://img.shields.io/travis/BbsonLin/flask-filer.svg?style=flat-square)](https://travis-ci.org/BbsonLin/flask-filer)
 [![image](https://img.shields.io/pypi/v/flask-filer.svg?style=flat-square)](https://pypi.org/project/flask-filer/)
 [![image](https://img.shields.io/pypi/status/flask-filer.svg?style=flat-square)](https://pypi.org/project/flask-filer/)
